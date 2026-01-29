@@ -7,11 +7,11 @@ NAME=Sree
 PHONE=10
 
 
-if [ PHONE -eq 1 ]; then
+if [ $PHONE -eq 1 ]; then
 
     echo "not equal 1"
 
-else if [ PHONE -eq 10 ]; then
+else if [ $PHONE -eq 10 ]; then
 
 
     echo "eqal to 10"
