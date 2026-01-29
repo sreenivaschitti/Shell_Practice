@@ -4,4 +4,4 @@ NAME=Sree
 PHONE=9949504909
 SKILL=("devops" "aws" "cicd")
 
-echo " $NAME with $PHONE having skills ${SKILL[@]}"
+echo " $NAME with $PHONE having skills ${SKILL[0] , SKILL[2]}"
