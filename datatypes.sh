@@ -2,13 +2,13 @@
 
 NAME=Sree
 PHONE=9949504909
-SKILL=("devops" "aws" "cicd")
+SKILL=( 1 "devops" "aws" "cicd")
 
 echo " $NAME with $PHONE having skills ${SKILL[0]}"
 
-if [ "${SKILL[0]}" == "devops" ] ; then
+if [ ${SKILL[0]} == 1 ] ; then
 
 
-    echo "skill is devops"
+    echo "skill is 1"
 
 fi
