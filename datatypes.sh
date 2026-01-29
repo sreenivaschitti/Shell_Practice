@@ -1,14 +1,19 @@
 #!bin/bash
-
+# -gt greater tha
+#-lt less
+# -eq
+# -ne
 NAME=Sree
-PHONE=9949504909
-SKILL=( 1 "devops" "aws" "cicd")
-
-echo " $NAME with $PHONE having skills ${SKILL[0]}"
-
-if [ ${SKILL[0]} == 1 ] ; then
+PHONE=10
 
 
-    echo "skill is 1"
+if [ PHONE -eq 1 ]; then
+
+    echo "not equal 1"
+
+else if [ PHONE -eq 10 ]; then
+
+
+    echo "eqal to 10"
 
 fi
