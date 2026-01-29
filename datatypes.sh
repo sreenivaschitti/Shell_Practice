@@ -4,14 +4,14 @@
 # -eq
 # -ne
 NAME=Sree
-PHONE=10
+PHONE=$1
 
 
-if [ "$PHONE" -eq 1 ]; then
+if [ $PHONE -eq 1 ]; then
 
     echo "not equal 1"
 
-elif [ "$PHONE" -eq 10 ]; then
+elif [ $PHONE -eq 10 ]; then
 
 
     echo "eqal to 10"
