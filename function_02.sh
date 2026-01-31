@@ -30,7 +30,7 @@ VALIDATE(){
 for package in $@
 
  do 
-    dnf list installed $package
+    dnf list installed $package tee -a $LOGS_FILE
     if [ $? -eq 0 ]; then
 
         echo " $package already installed "
