@@ -12,7 +12,7 @@ if [ $USERID -eq 0 ]; then
 
 fi
 
-mkdir -p $LOGFOLDER
+mkdir -p $LOGS_FOLDER
 
 VALIDATE(){
 
@@ -40,5 +40,6 @@ for package in $@
         dnf install $package -y &>>$LOGS_FILE
     
         VALIDATE $? "$package  installation"
- 
+    fi
+
  done   
