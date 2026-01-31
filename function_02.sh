@@ -30,7 +30,8 @@ VALIDATE(){
 for package in $@
 
  do 
-    dnf list installed $package tee -a $LOGS_FILE
+    dnf list installed $package | tee -a $LOGS_FILE
+    
     if [ $? -ne 0 ]; then
 
         dnf install $package -y &>>$LOGS_FILE
