@@ -7,7 +7,7 @@ USERID=$(id -u)
 
 if [ $USERID -ne 0 ]; then
 
-    echo " run with root user" &>>LOGS_FILE
+    echo " run with root user" | tee -a $LOGS_FILE
     exit 1
 
 fi
