@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOGS_FOLDER="/var/log/Shell_Practice"
-LOGS_FILE=$LOGFOLDER/$0.log
+LOGS_FILE=$LOGS_FOLDER/$0.log
 USERID=$(id -u)
 
 
