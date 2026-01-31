@@ -18,18 +18,18 @@ VALIDATE(){
 
     if [ $1 -ne 0 ]; then
         
-        echo "$1 ....Failure" &>>LOGS_FILE
+        echo "$1 ....Failure" | tee -a $LOGS_FILE
 
     else
 
-        echo "$1 ....Success" &>>LOGS_FILE
+        echo "$1 ....Success" |  tee -a $LOGS_FILE
 
     fi        
 }
 
  
 
-
+:<<'COMMENT'
  for package in $@ # sudo sh 14-loops.sh nginx mysql nodejs
 do
     dnf list installed $package &>>$LOGS_FILE
@@ -41,3 +41,4 @@ do
         echo "$package already installed, skipping"
     fi
 done
+COMMENT
