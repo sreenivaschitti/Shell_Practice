@@ -31,15 +31,16 @@ for package in $@
 
  do 
     dnf list installed $package tee -a $LOGS_FILE
-    if [ $? -eq 0 ]; then
-
-        echo " $package already installed "
-
-    else  
+    if [ $? -ne 0 ]; then
 
         dnf install $package -y &>>$LOGS_FILE
     
         VALIDATE $? "$package  installation"
+        
+
+    else  
+        echo " $package already installed "
+        
     fi
 
  done   
