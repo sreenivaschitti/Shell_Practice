@@ -31,7 +31,7 @@ for package in $@
 
  do 
     dnf list installed $package
-    if [ $? eq 0 ]; then
+    if [ $? -eq 0 ]; then
 
         echo " $package already installed "
 
