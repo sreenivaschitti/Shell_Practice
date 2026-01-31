@@ -5,7 +5,7 @@ LOGS_FILE=$LOGFOLDER/$0.log
 USERID=$(id -u)
 
 
-if [ $USERID -eq 0 ]; then
+if [ $USERID -ne 0 ]; then
 
     echo " run with root user" &>>LOGS_FILE
     exit 1
