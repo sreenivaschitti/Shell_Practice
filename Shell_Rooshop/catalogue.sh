@@ -88,7 +88,7 @@ cp  $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 dnf install mongodb-mongosh -y &>>$LOGS_FILE
 VALIDATE $? "mongodb-mongosh"
 
-Index=(mongosh  mongodb.chittis.online --quiet  --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
+Index=$(mongosh  mongodb.chittis.online --quiet  --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
 echo "db index $Index"
 if [ $Index -le 0 ]; then
 
