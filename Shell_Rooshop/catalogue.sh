@@ -89,8 +89,8 @@ dnf install mongodb-mongosh -y &>>$LOGS_FILE
 VALIDATE $? "mongodb-mongosh"
 
 Index=(mongosh  mongodb.chittis.online --quiet  --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
-
-if [ Index -le 0 ]; then
+echo "db index $Index"
+if [ $Index -le 0 ]; then
 
 mongosh --host $MONGODB_SERVER_IPADDRESS </app/db/master-data.js &>>$LOGS_FILE
 
