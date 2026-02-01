@@ -9,6 +9,21 @@ DOMAIN_NAME="chittis.online"
 
 for instance in $@
 
+TAG_NAME=$instance
+
+EXISTING_ID=$(aws ec2 describe-instances \
+    --filters "Name=tag:Name,Values=$TAG_NAME" "Name=instance-state-name,Values=running,pending" \
+    --query "Reservations[*].Instances[*].InstanceId" \
+    --output text)
+
+if [ -n "$EXISTING_ID" ]; then
+    echo "Error: An instance with the name '$TAG_NAME' already exists (ID: $EXISTING_ID)."
+    exit 1
+fi
+
+echo "Name is unique. Launching instance..."
+
+
 do
       instance_Id=$( aws ec2 run-instances \
         --image-id $AMI_ID \
