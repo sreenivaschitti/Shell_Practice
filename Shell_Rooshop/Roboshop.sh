@@ -9,6 +9,8 @@ DOMAIN_NAME="chittis.online"
 
 for instance in $@
 
+do
+
 TAG_NAME=$instance
 
 EXISTING_ID=$(aws ec2 describe-instances \
@@ -24,7 +26,7 @@ fi
 echo "Name is unique. Launching instance..."
 
 
-do
+
       instance_Id=$( aws ec2 run-instances \
         --image-id $AMI_ID \
         --instance-type t3.micro \
