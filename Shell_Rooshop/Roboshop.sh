@@ -21,8 +21,6 @@ EXISTING_ID=$(aws ec2 describe-instances \
 if [ -n "$EXISTING_ID" ]; then
     echo "Error: An instance with the name '$TAG_NAME' already exists (ID: $EXISTING_ID)."
     
-
-
     else
       echo "Name is unique. Launching instance..."
 
