@@ -24,6 +24,7 @@ if [ $? -ne 0 ]; then
 
     else
         echo "Data already exist"
+        echo "Data already exist"
 
 fi
 
