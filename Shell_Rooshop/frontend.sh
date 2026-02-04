@@ -3,6 +3,7 @@
 source ./common.sh
 app_name=frontend
 app_directory=/usr/share/nginx/html
+SCRIPT_DIR=$PWD
 chekck_root
 
 dnf module disable nginx -y &>>$LOGS_FILE
@@ -19,14 +20,14 @@ VALIDATE $? "start nginx"
 rm -rf $app_directory/* 
 VALIDATE $? "remove default content" 
 
-curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip &>>$LOGS_FILE
 VALIDATE $? "download frontend"
 
 cd /usr/share/nginx/html 
 unzip /tmp/frontend.zip
 VALIDATE $? "unzip frontend"
 
-cp nginx.conf /etc/nginx/nginx.conf
+cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf
 VALIDATE $? "copied nginx.conf"
 
 systemctl restart nginx 
