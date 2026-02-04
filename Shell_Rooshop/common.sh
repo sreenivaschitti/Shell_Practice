@@ -74,7 +74,7 @@ app_setup(){
     VALIDATE $? "creating directory"
 
 
-    curl -o  $ /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip 
+    curl -o  /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip 
     VALIDATE $? "dowloadig $app_name code"
 
     cd /app 
