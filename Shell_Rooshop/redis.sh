@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./service.sh
+source ./common.sh
 
 chekck_root()
 
