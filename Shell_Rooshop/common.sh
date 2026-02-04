@@ -91,8 +91,8 @@ app_setup(){
 
 SYSTEM_SETUP(){
     echo "script dire" $SCRIPT_DIR
-    
-    cp $SCRIPT_DIR/$app_name_service /etc/systemd/system/$app_name_service 
+
+    cp $SCRIPT_DIR/$app_name.service /etc/systemd/system/$app_name.service 
     VALIDATE $? "copy $app_name service"
 
     systemctl daemon-reload &>>$LOGS_FILE
