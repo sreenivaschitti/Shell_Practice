@@ -1,6 +1,6 @@
+
 #!/bin/bash
-#!/bin/bash
-source ./service.sh
+source ./common.sh
 app_name=frontend
 app_directory=/usr/share/nginx/html
 chekck_root()
