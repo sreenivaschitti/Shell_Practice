@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./common.sh
 app_name=shipping
-MYSQL_SERVER_IPADDRESS=mysql..chittis.online
+MYSQL_SERVER_IPADDRESS=mysql.chittis.online
 
 app_setup
 java_setup
