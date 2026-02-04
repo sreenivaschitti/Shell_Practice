@@ -22,3 +22,10 @@ FILESTODELETE=$( find $LOGS_DIR -name '*.log' -mtime +14 )
 echo "$FILESTODELETE"
 
 
+#files delete
+
+while IFS= read -r filepath ; do
+
+echo $filepath
+
+done<<<$FILESTODELETE
