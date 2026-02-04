@@ -90,6 +90,8 @@ app_setup(){
 }
 
 SYSTEM_SETUP(){
+    echo "script dire" $SCRIPT_DIR
+    
     cp $SCRIPT_DIR/$app_name_service /etc/systemd/system/$app_name_service 
     VALIDATE $? "copy $app_name service"
 
