@@ -1,6 +1,6 @@
 source ./common.sh
 
-chekck_root()
+chekck_root
 
 dnf install mysql-server -y &>>$LOGS_FILE
 VALIDATE $? "install mysql-server"
