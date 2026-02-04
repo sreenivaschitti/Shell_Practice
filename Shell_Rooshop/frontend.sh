@@ -3,7 +3,7 @@
 source ./common.sh
 app_name=frontend
 app_directory=/usr/share/nginx/html
-chekck_root()
+chekck_root
 
 dnf module disable nginx -y &>>$LOGS_FILE
 dnf module enable nginx:1.24 -y &>>$LOGS_FILE
