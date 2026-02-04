@@ -2,7 +2,7 @@
 
 source ./common.sh
 
-chekck_root()
+chekck_root
 
 
 dnf module disable redis -y &>>$LOGS_FILE
