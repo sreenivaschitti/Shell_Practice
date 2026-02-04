@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./service.sh
+source ./common.sh
 app_name=user
 MONGODB_SERVER_IPADDRESS=mongodb.chittis.online
 chekck_root()

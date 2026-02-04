@@ -22,10 +22,4 @@ VALIDATE $? "enable redis"
 systemctl start redis 
 VALIDATE $? "start redis" 
 
-print_total_time()
-
-
-
-
-
-
+print_total_time
