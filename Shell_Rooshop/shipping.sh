@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./service.sh
+source ./common.sh
 app_name=shipping
 MYSQL_SERVER_IPADDRESS=mysql..chittis.online
 
