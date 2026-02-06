@@ -49,7 +49,7 @@ exit 1
 
 fi
 
-FILES=$( find $SOURE_DIR -type f -mtime +$DAYS )
+FILES=$( find $SOURE_DIR -type f -mtime +"$DAYS" )
 
 log "backup started"
 log "source $SOURE_DIR"
