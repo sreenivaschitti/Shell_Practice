@@ -70,7 +70,8 @@ if [ -z "$FILES" ]; then
     TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.tar.gz"
     log "Archieve name: $ZIP_FILE_NAME"
-    find "$SOURE_DIR" -type f -mtime +"$DAYS" -print0 | tar --null -czvf $ZIP_FILE_NAME --files-from=-
+    
+    tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR  -type f -mtime +$DAYS)
 
 fi
 
