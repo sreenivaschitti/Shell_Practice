@@ -35,14 +35,14 @@ USAGE
 fi
 
 
-if [! -d $SOURE_DIR]; then
+if [ ! -d $SOURE_DIR ]; then
 
 echo "$SOURE_DIR is not available"
 exit 1
 
 fi
 
-if [! -d $DEST_DIR_DIR]; then
+if [ ! -d $DEST_DIR_DIR ]; then
 
 echo "$SOURE_DIR is available"
 exit 1
