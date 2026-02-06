@@ -68,12 +68,13 @@ if [ -z "$FILES" ]; then
     log "Files found to archive $FILES"
 
     TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
-    ZIPFILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.tar.gz"
-    tar -czf "$ZIPFILE_NAME" $( find $SOURE_DIR -type f -mtime +"$DAYS" )
+    ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.tar.gz"
+    log "Archieve name: $ZIP_FILE_NAME"
+    tar -czf "$ZIP_FILE_NAME" $( find $SOURE_DIR -type f -mtime +"$DAYS" )
 
 fi
 
-if [ -f $ZIPFILE_NAME ]; then
+if [ -f $ZIP_FILE_NAME ]; then
 
     log " archive is sucess"
 
