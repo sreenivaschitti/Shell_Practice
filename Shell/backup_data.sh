@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SOURE_DIR=$1
+SOURCE_DIR=$1
 DEST_DIR=$2
 DAYS=${3:-14}
 USERID=$(id -u)
@@ -35,16 +35,16 @@ USAGE
 fi
 
 
-if [ ! -d $SOURE_DIR ]; then
+if [ ! -d $SOURCE_DIR ]; then
 
-echo "$SOURE_DIR is not available"
+echo "$SOURCE_DIR is not available"
 exit 1
 
 fi
 
 if [ ! -d $DEST_DIR_DIR ]; then
 
-echo "$SOURE_DIR is available"
+echo "$DEST_DIR is available"
 exit 1
 
 fi
@@ -52,35 +52,34 @@ fi
 FILES=$( find $SOURE_DIR -type f -mtime +"$DAYS" )
 
 log "backup started"
-log "source $SOURE_DIR"
+log "source $SOURCE_DIR"
 log "desti $DEST_DIR"
 log "$DAYS"
 
 
 
-if [ -z "$FILES" ]; then
-
-    log "No Files"
-    exit 1
-
-    else 
-
-    log "Files found to archive $FILES"
-
-    TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+if [ -z "${FILES}" ]; then
+    log "No files to archieve ... $Y Skipping $N"
+else
+    # app-logs-$timestamp.zip
+    log "Files found to archieve: $FILES"
+    TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.tar.gz"
     log "Archieve name: $ZIP_FILE_NAME"
-    
-    tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR  -type f -mtime +$DAYS)
+    tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
 
-fi
+    # Check archieve is success or not
+    if [ -f $ZIP_FILE_NAME ]; then
+        log "Archeival is ... $G SUCCESS $N"
 
-if [ -f $ZIP_FILE_NAME ]; then
-
-    log " archive is sucess"
-
+        while IFS= read -r filepath; do
+        # Process each line here
+        log "Deleting file: $filepath"
+        rm -f $filepath
+        log "Deleted file: $filepath"
+        done <<< $FILES
     else
-
-    log "arcive failure"
-
+        log "Archeival is ... $R FAILURE $N"
+        exit 1
+    fi
 fi
