@@ -1,6 +1,6 @@
 #!bin/bash
 
-
+THRESHOLD=3
 
 df -HT | grep -v Filesystem | while IFS= read -r line; do
     # Split fields
