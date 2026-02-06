@@ -14,7 +14,7 @@ while IFS= read -r value; do
     echo "value: $value"
     if [ "$value" -ge "$DISH_TRESHHOLD" ]; then
     echo "value is high"
-    Message+="High disk $USAGE:$DISK" 
+    Message="High disk $USAGE:$DISK" 
     fi
 done <<< $DISKUSAGE
 
