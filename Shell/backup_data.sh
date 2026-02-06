@@ -60,23 +60,25 @@ log "$DAYS"
 
 if [ -z "$FILES" ]; then
 
-log "No Files"
-exit 1
+    log "No Files"
+    exit 1
 
-else 
+    else 
 
-log "Files found to archive $FILES"
+    log "Files found to archive $FILES"
 
-TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
-ZIPFILE_NAME=$DEST_DIR/app-logs-$TIMESTAMP.tar.gz
-tar -czf $ZIPFILE_NAME $FILES
+    TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+    ZIPFILE_NAME=$DEST_DIR/app-logs-$TIMESTAMP.tar.gz
+    tar -czf $ZIPFILE_NAME $FILES
+
+fi
 
 if [ -f $ZIPFILE_NAME ]; then
 
-log " archive is sucess"
+    log " archive is sucess"
 
-else
+    else
 
-log "arcive failure"
+    log "arcive failure"
 
 fi
