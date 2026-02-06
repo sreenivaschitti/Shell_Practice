@@ -75,7 +75,7 @@ if [ -z "$FILES" ]; then
 
 fi
 
-if [ -f "$ZIP_FILE_NAME" ]; then
+if [ -f $ZIP_FILE_NAME ]; then
 
     log " archive is sucess"
 
