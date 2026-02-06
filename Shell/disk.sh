@@ -12,9 +12,9 @@ while IFS= read -r value; do
     DISK=$( df -HT | grep -v Filesystem | awk '{print $7}' )
 
     echo "value: $value"
-    if [ $value -ge $DISH_TRESHHOLD ]; then
+    if [ "$value" -ge "$DISH_TRESHHOLD" ]; then
     Message+="High disk $USAGE:$DISK" 
     fi
-done << "$DISKUSAGE"
+done <<< $DISKUSAGE
 
 echo "$Message"
