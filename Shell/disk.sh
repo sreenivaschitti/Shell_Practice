@@ -1,20 +1,13 @@
 #!bin/bash
->$Message
-DISKUSAGE=$( df -HT | grep -v Filesystem | awk '{print $6}' | cut -d '%' -f1)
 
-echo $DISKUSAGE
 
-DISH_TRESHHOLD=3
 
-while IFS= read -r value; do
-
-    USAGE=$( df -HT | grep -v Filesystem | awk '{print $6}' | cut -d '%' -f1)
-    DISK=$( df -HT | grep -v Filesystem | awk '{print $7}' )
-
-    if [ "$value" -ge "$DISH_TRESHHOLD" ]; then
-    echo "value is high"
-    Message="High disk $USAGE:$DISK" 
+df -HT | grep -v Filesystem | while IFS= read -r line; do
+    # Split fields
+    USAGE=$(echo "$line" | awk '{print $5}' | tr -d '%')
+    DISK=$(echo "$line" | awk '{print $7}')
+    
+    if [ "$USAGE" -ge "$THRESHOLD" ]; then
+        echo "Warning: Disk usage is high on $DISK ($USAGE%)"
     fi
-done <<< $DISKUSAGE
-
-echo "$Message"
+done
