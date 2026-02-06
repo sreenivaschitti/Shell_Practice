@@ -2,7 +2,7 @@
 
 SOURE_DIR=$1
 DEST_DIR=$2
-DAYS=${3:  -14}
+DAYS=${3:-14}
 USERID=$(id -u)
 LOGS_DIR="/var/log/backup"
 LOGS_FILE="$LOGS_FILE/$0.log"
@@ -14,7 +14,7 @@ echo "please run with ROOT user" &>$LOGS_FILE
 
 fi
 
-mkdir $LOGS_DIR
+mkdir -p $LOGS_DIR
 
 USAGE(){
 
